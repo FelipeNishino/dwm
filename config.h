@@ -39,6 +39,8 @@ static const int horizpadtabo       = 15;
 static const int scalepreview       = 4;
 static       int tag_preview        = 0;        /* 1 means enable, 0 is off */
 
+
+// Options for fonts: Inconsolara, Fira Code, Cascadia Code
 static const char *fonts[]          = { "Cascadia Code:style:medium:size=10",
                                         "Material Design Icons-Regular:size=10",
                                       };
@@ -67,7 +69,10 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"󰇩", "󰉋", "󰆍", "󰎞", "󰎄"};
+// This depends on installed icons
+// static char *tags[] = {"󰇩", "󰉋", "󰆍", "󰎞", "󰎄"};
+
+static char *tags[] = {"1", "2", "3", "4", "5"};
 
 static const int tagschemes[] = { SchemeTag1, SchemeTag2, SchemeTag3,
                                   SchemeTag4, SchemeTag5,
@@ -119,6 +124,10 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+/*
+Mod1MAsk = ALT
+Mod4Mask = Super
+*/
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -160,8 +169,8 @@ static Key keys[] = {
     //{MODKEY|ShiftMask, XK_y ,spawn, SHCMD("pkill -9 mpv")},
     
     /* Screenshots scripts */
-    {MODKEY,   XK_Print, spawn, SHCMD("~/.config/rofi/scripts/screenshot.sh")},
-    {0,   XK_Print, spawn, SHCMD("~/.scripts/screenshot-screen.sh")},
+    // {MODKEY,   XK_Print, spawn, SHCMD("~/.config/rofi/scripts/screenshot.sh")},
+    // {0,   XK_Print, spawn, SHCMD("~/.scripts/screenshot-screen.sh")},
 
     /* XF86 Keybinding */
     //{0, XF86AudioRaiseVolume, spawn,   SHCMD("~/.scripts/notify/change-volume up")},
@@ -179,8 +188,8 @@ static Key keys[] = {
     
     //{ MODKEY,                       XK_b,      togglebar,      {0} },
     //{ MODKEY|ControlMask,                       XK_w,      tabmode,        { -1 } },
-    { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-    { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+    { MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
+    { MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
     { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -221,8 +230,8 @@ static Key keys[] = {
     { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
     { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-    { MODKEY|ControlMask,           XK_g,      setlayout,      {.v = &layouts[10]} },
-    { MODKEY|ControlMask|ShiftMask, XK_t,      setlayout,      {.v = &layouts[13]} },
+    // { MODKEY|ControlMask,           XK_g,      setlayout,      {.v = &layouts[10]} },
+    // { MODKEY|ControlMask|ShiftMask, XK_t,      setlayout,      {.v = &layouts[13]} },
     { MODKEY,                       XK_space,  setlayout,      {0} },
     { MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
     { MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
