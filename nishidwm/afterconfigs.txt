@@ -1,0 +1,31 @@
+spawn example
+ static const char **startup_programs[] = { termcmd, someothercmd, }; 
+
+ winicon 
+ sudo pacman -S imlib2
+
+config
+ #define ICONSIZE 20   /* icon size in pixels */
+#define ICONSPACING 5 /* space (pixels) between icon and title */
+
+There are also some practical macro hacks:
+
+#define ICONSIZE bh       /* make icon size equals to bar height */
+#define ICONSIZE (bh - 4) /* or adaptively preserve 2 pixels each side */
+
+
+    Replace (in drw.c, drw_create function)
+
+drw->picture = XRenderCreatePicture(dpy, drw->drawable, XRenderFindVisualFormat(dpy, DefaultVisual(dpy, screen)), 0, NULL);
+
+with
+
+drw->picture = XRenderCreatePicture(dpy, drw->drawable, XRenderFindVisualFormat(dpy, visual), 0, NULL);
+
+    Replace (in drw.c, drw_resize function)
+
+drw->picture = XRenderCreatePicture(drw->dpy, drw->drawable, XRenderFindVisualFormat(drw->dpy, DefaultVisual(drw->dpy, drw->screen)), 0, NULL);
+
+with
+
+drw->picture = XRenderCreatePicture(drw->dpy, drw->drawable, XRenderFindVisualFormat(drw->dpy, drw->visual), 0, NULL);
