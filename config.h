@@ -13,8 +13,8 @@ static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
 #define ICONSIZE 16   /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
-static char font[]            = "monospace:size=10";
-static char dmenufont[]       = "monospace:size=10";
+static char font[]            = "Cascadia Code :style=medium:size=10";
+static char dmenufont[]       = "Cascadia Code :size=10";
 static const char *fonts[]          = { font };
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
