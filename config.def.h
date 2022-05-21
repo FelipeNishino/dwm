@@ -1,5 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
+#define XF86AudioRaiseVolume 0x1008ff13
+#define XF86AudioLowerVolume 0x1008ff11
+#define XF86AudioPlay 0x1008ff14
+#define XF86HomePage 0x1008ff18
+
 /* appearance */
 static unsigned int borderpx  = 1;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 10};
@@ -95,7 +100,26 @@ ResourcePref resources[] = {
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	
+	/* Rofi scripts */
+	//{MODKEY, XK_q, spawn, SHCMD("~/.config/rofi/scripts/powermenu")},
+	//{MODKEY, XK_p, spawn, SHCMD("~/.config/rofi/scripts/monitor")},
+	//{MODKEY, XK_v, spawn, SHCMD("~/.config/rofi/scripts/volume")}, 
+	{MODKEY, XK_r, spawn, SHCMD("~/.config/rofi/scripts/appsmenu")},
+	{MODKEY, XK_o, spawn, SHCMD("~/.config/rofi/scripts/emojimenu")},
+	
+	/* Flameshot script */
+	{ 0, XK_Print, spawn, SHCMD("flameshot gui -c")},
+	//{ ControlMask|ShiftMask, XK_Print, spawn, SHCMD("flameshot full -c")},
+
+	/* XF86 Keybinding */
+	{0, XF86AudioRaiseVolume, spawn,   SHCMD("~/.scripts/notify/change-volume up")},
+	{0, XF86AudioLowerVolume, spawn,   SHCMD("~/.scripts/notify/change-volume down")},
+	//{0, XF86AudioPlay,        spawn,   SHCMD("~/.scripts/notify/change-volume mute")},
+	//{0, XF86HomePage,         spawn,   SHCMD("farge --notify")},
+
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
