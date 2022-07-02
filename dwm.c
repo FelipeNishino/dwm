@@ -515,8 +515,8 @@ buttonpress(XEvent *e)
 			click = ClkLtSymbol;
 		// Replaced (int)TEXTW(stext) - getsystraywidth() with statusw from statuscmd patch
 		
-		else if (ev->x > selmon->ww - statusw) {
-			x = selmon->ww - statusw;			
+		else if (ev->x > selmon->ww - statusw - getsystraywidth()) {
+			x = selmon->ww - statusw - getsystraywidth();			
 			click = ClkStatusText;
 
 			char *text, *s, ch;
