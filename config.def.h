@@ -108,10 +108,10 @@ static Key keys[] = {
 	//{MODKEY, XK_p, spawn, SHCMD("~/.config/rofi/scripts/monitor")},
 	//{MODKEY, XK_v, spawn, SHCMD("~/.config/rofi/scripts/volume")}, 
 	{MODKEY, XK_r, spawn, SHCMD("~/.config/rofi/scripts/appsmenu")},
-	{MODKEY, XK_o, spawn, SHCMD("~/.config/rofi/scripts/emojimenu")},
+	//{MODKEY, XK_o, spawn, SHCMD("~/.config/rofi/scripts/emojimenu")},
 	
 	/* Flameshot script */
-	{ 0, XK_Print, spawn, SHCMD("flameshot gui -c")},
+	{ 0, XK_Print, spawn, SHCMD("flameshot gui")},
 	//{ ControlMask|ShiftMask, XK_Print, spawn, SHCMD("flameshot full -c")},
 
 	/* XF86 Keybinding */
@@ -159,22 +159,23 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      shiftview,      {.i = +1} },
 	{ MODKEY|ShiftMask,             XK_n,      shiftview,      {.i = -1} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ 0,                            XK_F12,    spawn,          SHCMD("yakuake") },
 };
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
-	/* click                event mask      button          function        argument */
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-	{ ClkTagBar,            0,              Button1,        view,           {0} },
-	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+	/* click                event mask        button          function        argument */
+	{ ClkTagBar,            MODKEY,           Button1,        tag,            {0} },
+	{ ClkTagBar,            MODKEY,           Button3,        toggletag,      {0} },
+	{ ClkWinTitle,          0,                Button2,        zoom,           {0} },
+	{ ClkStatusText,        0,                Button2,        spawn,          {.v = termcmd } },
+	{ ClkClientWin,         MODKEY|ShiftMask, Button1,        movemouse,      {0} },
+	{ ClkClientWin,         MODKEY|ShiftMask, Button2,        togglefloating, {0} },
+	{ ClkClientWin,         MODKEY|ShiftMask, Button3,        resizemouse,    {0} },
+	{ ClkTagBar,            0,                Button1,        view,           {0} },
+	{ ClkTagBar,            0,                Button3,        toggleview,     {0} },
+	{ ClkTagBar,            MODKEY,           Button1,        tag,            {0} },
+	{ ClkTagBar,            MODKEY,           Button3,        toggletag,      {0} },
 };
 

@@ -1,4 +1,4 @@
-### Patches
+## Patches
 
 - [alpha/](https://dwm.suckless.org/patches/alpha) X
 - [cursorwarp/?](https://dwm.suckless.org/patches/cursorwarp)
@@ -25,7 +25,12 @@
 - [xresources/](https://dwm.suckless.org/patches/xresources) X
 - [xtheme/](https://dwm.suckless.org/patches/xtheme)
 
-### Dependencies
+### TBA
+
+- dwmblocks
+- decoration hints
+
+## Dependencies
 
 - libxcb
 - Xlib-libxcb
