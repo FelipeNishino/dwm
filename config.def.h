@@ -3,7 +3,9 @@
 #define XF86AudioRaiseVolume 0x1008ff13
 #define XF86AudioLowerVolume 0x1008ff11
 #define XF86AudioPlay 0x1008ff14
-#define XF86HomePage 0x1008ff18
+#define XF86AudioNext 0x1008ff17
+#define XF86AudioPrev 0x1008ff16
+#define XF86AudioMute 0x1008ff12
 
 /* appearance */
 static unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -117,12 +119,15 @@ static Key keys[] = {
 	//{ ControlMask|ShiftMask, XK_Print, spawn, SHCMD("flameshot full -c")},
 
 	/* XF86 Keybinding */
-	{0, XF86AudioRaiseVolume, spawn,   SHCMD("~/.scripts/notify/change-volume up")},
-	{0, XF86AudioLowerVolume, spawn,   SHCMD("~/.scripts/notify/change-volume down")},
-	//{0, XF86AudioPlay,        spawn,   SHCMD("~/.scripts/notify/change-volume mute")},
+    { 0, XF86AudioRaiseVolume,  spawn,  SHCMD("~/.scripts/notify/change-volume up")},
+    { 0, XF86AudioLowerVolume,  spawn,  SHCMD("~/.scripts/notify/change-volume down")},
+    { 0, XF86AudioMute,         spawn,  SHCMD("~/.scripts/notify/change-volume mute")},
+    { 0, XF86AudioPlay,         spawn,  SHCMD("playerctl --player=spotify,firefox play-pause")},
+    { 0, XF86AudioNext,         spawn,  SHCMD("playerctl --player=spotify,firefox next")},
+    { 0, XF86AudioPrev,         spawn,  SHCMD("playerctl --player=spotify,firefox previous")},
 	//{0, XF86HomePage,         spawn,   SHCMD("farge --notify")},
-
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	
+    { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
