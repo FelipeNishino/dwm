@@ -18,6 +18,10 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static int showbar            = 1;     /* 0 means no bar */
 static int topbar             = 1;     /* 0 means bottom bar */
+static const int usealtbar          = 0;        /* 1 means use non-dwm status bar */
+static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
+static const char *alttrayname      = "tray";    /* Polybar tray instance name */
+static const char *altbarcmd        = "$HOME/bar.sh"; /* Alternate bar launch command */
 #define ICONSIZE 16   /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
 static char font[]            = "Cascadia Code :style=medium:size=10";
