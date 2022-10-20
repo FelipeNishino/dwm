@@ -24,7 +24,8 @@ static const char *alttrayname      = "tray";    /* Polybar tray instance name *
 static const char *altbarcmd        = "$HOME/bar.sh"; /* Alternate bar launch command */
 #define ICONSIZE 16   /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
-static char font[]            = "Cascadia Code :style=medium:size=10";
+static char font[]            = "CaskaydiaCove Nerd Font ::size=12";
+//static char font[]            = "CaskaydiaCove Nerd Font :style=medium:size=12";
 static char dmenufont[]       = "Cascadia Code :size=10";
 static const char *fonts[]          = { font };
 static char normbgcolor[]           = "#222222";
